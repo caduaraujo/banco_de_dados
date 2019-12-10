@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @prato.descricao %>
+</p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= @prato.preco %>
+</p>
+
+<p>
+  <strong>Disponibilidade:</strong>
+  <%= @prato.disponibilidade %>
+</p>
+
+<p>
+  <strong>Tempo estimado:</strong>
+  <%= @prato.tempo_estimado %>
+</p>
+
+<p>
+  <strong>Restaurante:</strong>
+  <%= @prato.restaurante_id %>
+</p>
+
+<%= link_to 'Edit', edit_prato_path(@prato) %> |
+<%= link_to 'Back', pratos_path %>

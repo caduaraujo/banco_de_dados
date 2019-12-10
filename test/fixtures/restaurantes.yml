@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cnpj: 
+  nome_oficial: 
+  nome_fantasia: 
+  phone: 
+  horario: 
+  tipo_comida: 
+  adress: one
+
+two:
+  cnpj: 
+  nome_oficial: 
+  nome_fantasia: 
+  phone: 
+  horario: 
+  tipo_comida: 
+  adress: two

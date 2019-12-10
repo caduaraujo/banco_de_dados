@@ -1,0 +1,14 @@
+
+
+<% @pratos.each do |prato| %>
+
+  <div class="card" style="width: 60rem; margin: 20px auto;">
+    <div class="card-body">
+      <h4 class="card-title">  <%= prato.descricao %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%= prato.preco %></h6>
+      <p class="card-text"> <%= prato.disponibilidade %>.</p>
+      <a href="#" class="card-link">Pedir</a>
+    </div>
+  </div>
+
+<% end %>

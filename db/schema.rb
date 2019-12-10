@@ -10,9 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_12_09_023956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pratos", force: :cascade do |t|
+    t.string "descricao"
+    t.float "preco"
+    t.boolean "disponibilidade"
+    t.time "tempo_estimado"
+    t.bigint "restaurante_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurante_id"], name: "index_pratos_on_restaurante_id"
+  end
+
+  create_table "restaurantes", force: :cascade do |t|
+    t.integer "cnpj", null: false
+    t.string "nome_oficial", null: false
+    t.string "nome_fantasia", null: false
+    t.integer "phone", null: false
+    t.string "horario", null: false
+    t.string "tipo_comida", null: false
+    t.string "endereco", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "cpf", null: false
+    t.string "nome_completo", null: false
+    t.string "rg", null: false
+    t.string "email", null: false
+    t.string "telefone", null: false
+    t.string "adress", null: false
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "pratos", "restaurantes"
 end
