@@ -1,0 +1,2 @@
+class EntregadorsController < ApplicationController
+end

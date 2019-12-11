@@ -1,6 +1,6 @@
 class RestaurantesController < ApplicationController
   before_action :set_restaurante, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
+  # before_action :authorize
 
   # GET /restaurantes
   # GET /restaurantes.json
@@ -75,7 +75,6 @@ class RestaurantesController < ApplicationController
     end
 
     def authorize
-      byebug
       head :unauthorized if !current_user
     end
 end

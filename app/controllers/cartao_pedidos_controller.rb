@@ -1,0 +1,2 @@
+class CartaoPedidosController < ApplicationController
+end

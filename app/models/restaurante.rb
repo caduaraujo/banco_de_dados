@@ -4,5 +4,9 @@ class Restaurante < Database
 
   # has_many :pratos
 
+  def pratos
+    Pratos.where(restaurante_id: self.id)
+  end
+
   TABLENAME = 'restaurantes'
 end

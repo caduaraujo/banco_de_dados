@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prato:</strong>
+  <%= @pedido.prato_id %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @pedido.cliente_id %>
+</p>
+
+<p>
+  <strong>Forma pagamento:</strong>
+  <%= @pedido.forma_pagamento %>
+</p>
+
+<p>
+  <strong>Troco:</strong>
+  <%= @pedido.troco %>
+</p>
+
+<p>
+  <strong>Entregador:</strong>
+  <%= @pedido.entregador_id %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>

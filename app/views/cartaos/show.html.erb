@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @cartao.numero %>
+</p>
+
+<p>
+  <strong>Nome titular:</strong>
+  <%= @cartao.nome_titular %>
+</p>
+
+<p>
+  <strong>Validade:</strong>
+  <%= @cartao.validade %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @cartao.cliente_id %>
+</p>
+
+<%= link_to 'Edit', edit_cartao_path(@cartao) %> |
+<%= link_to 'Back', cartaos_path %>

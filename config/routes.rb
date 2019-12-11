@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :cartao_pedidos
+  resources :cartaos
+  resources :pedidos
+  resources :entregadors
   get 'sessions/new'
   resources :users
 

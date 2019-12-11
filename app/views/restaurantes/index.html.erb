@@ -5,8 +5,11 @@
       <h4 class="card-title">  <%= restaurante.nome_fantasia %></h4>
       <h6 class="card-subtitle mb-2 text-muted"><%= restaurante.tipo_comida %></h6>
       <p class="card-text">Horário de funcionamento: <%= restaurante.horario %>.</p>
-      <a href="#" class="card-link"><%= link_to('Cardápio', restaurante_pratos_path(restaurante) ) %></a>
     </div>
   </div>
 
+<% end %>
+
+<%= link_to new_restaurante_path do %>
+  <button type="button" class="btn btn-danger">Novo</button>
 <% end %>

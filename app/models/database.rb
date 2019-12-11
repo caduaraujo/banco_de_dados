@@ -40,6 +40,16 @@ class Database
     self.new(result)
   end
 
+  def save
+    klass = self.class
+
+    if self.id
+      self.id = klass.update(self.instance_values)
+    else
+      klass.create(self.instance_values)
+    end
+  end
+
   def self.create(options = {})
     options.merge!(
       created_at: Time.now,
@@ -54,8 +64,10 @@ class Database
         value
       end
     end.join(', ')
-    sql = "INSERT INTO #{self::TABLENAME} (#{attributes.join(', ')}) VALUES (#{values})"
-    !!ActiveRecord::Base.connection.execute(sql)
+    sql = "INSERT INTO #{self::TABLENAME} (#{attributes.join(', ')}) VALUES (#{values}) RETURNING id"
+    result = ActiveRecord::Base.connection.execute(sql)
+
+    result['id']
   end
 
   def update(options = {})
@@ -69,6 +81,10 @@ class Database
     sql = "UPDATE #{self.class::TABLENAME} SET #{values}"
     !!ActiveRecord::Base.connection.execute(sql)
   end
-end
 
-#results = { name: 'artur', email: 'artur.prado@gmail.com', message: 'teste' }
+  def self.all
+    sql = "SELECT * FROM #{self::TABLENAME}"
+    results = ActiveRecord::Base.connection.execute(sql)
+    results.map { |result| self.new(result) }
+  end
+end
