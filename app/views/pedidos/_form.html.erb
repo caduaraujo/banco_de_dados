@@ -1,42 +1,44 @@
-<%= form_with(model: pedido, local: true) do |form| %>
-  <% if pedido.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+<section>
+  <%= form_with(model: pedido, local: true) do |form| %>
+    <% if pedido.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
 
-      <ul>
-        <% pedido.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% pedido.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <input type="hidden" name="restaurante_id", value=<%= @restaurante.id %> />
+    <input type="hidden" name="prato_id", value=<%= @prato.id %> />
+
+    <div class="field d-none">
+      <%= form.label :prato_id %>
+      <%= form.text_field :prato_id, value: params['prato_id'] %>
+    </div>
+
+    <div class="field d-none">
+      <%= form.label :user_id %>
+      <%= form.text_field :user_id, value: current_user.id %>
+    </div>
+
+    <div class="field">
+      <%= form.select :forma_pagamento, options_for_select([['Dinheiro', '1'], ['Cartão', '0']]) %>
+    </div>
+
+    <%= render 'credit_card' %>
+    <%= render 'money', form: form %>
+
+    <div class="field d-none">
+      <%= form.label :entregador_id %>
+      <%= form.text_field :entregador_id, value: Entregador.all.first.id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :prato_id %>
-    <%= form.text_field :prato_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :forma_pagamento %>
-    <%= form.check_box :forma_pagamento %>
-  </div>
-
-  <div class="field">
-    <%= form.label :troco %>
-    <%= form.check_box :troco %>
-  </div>
-
-  <div class="field">
-    <%= form.label :entregador_id %>
-    <%= form.text_field :entregador_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

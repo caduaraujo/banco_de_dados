@@ -7,12 +7,12 @@
 
 <p>
   <strong>Preco:</strong>
-  <%= @prato.preco %>
+  <%= number_to_currency(@prato.preco) %>
 </p>
 
 <p>
   <strong>Disponibilidade:</strong>
-  <%= @prato.disponibilidade %>
+  <%= @prato.disponibilidade ? 'Sim' : 'Não' %>
 </p>
 
 <p>
@@ -22,7 +22,8 @@
 
 <p>
   <strong>Restaurante:</strong>
-  <%= @prato.restaurante_id %>
+  <%= @restaurante.nome_oficial %> (<%= @restaurante.nome_fantasia %>)
 </p>
 
-<%= link_to 'Back', pratos_path %>
+<%= link_to 'Editar', edit_restaurante_prato_path(restaurante_id: @restaurante.id, id: @prato.id) %> |
+<%= link_to 'Voltar', restaurante_pratos_path(restaurante_id: @restaurante.id) %>

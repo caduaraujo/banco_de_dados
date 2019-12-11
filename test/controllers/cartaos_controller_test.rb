@@ -17,7 +17,7 @@ class CartaosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cartao" do
     assert_difference('Cartao.count') do
-      post cartaos_url, params: { cartao: { cliente_id: @cartao.cliente_id, nome_titular: @cartao.nome_titular, numero: @cartao.numero, validade: @cartao.validade } }
+      post cartaos_url, params: { cartao: { user_id: @cartao.user_id, nome_titular: @cartao.nome_titular, numero: @cartao.numero, validade: @cartao.validade } }
     end
 
     assert_redirected_to cartao_url(Cartao.last)
@@ -34,7 +34,7 @@ class CartaosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cartao" do
-    patch cartao_url(@cartao), params: { cartao: { cliente_id: @cartao.cliente_id, nome_titular: @cartao.nome_titular, numero: @cartao.numero, validade: @cartao.validade } }
+    patch cartao_url(@cartao), params: { cartao: { user_id: @cartao.user_id, nome_titular: @cartao.nome_titular, numero: @cartao.numero, validade: @cartao.validade } }
     assert_redirected_to cartao_url(@cartao)
   end
 

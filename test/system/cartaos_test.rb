@@ -14,7 +14,7 @@ class CartaosTest < ApplicationSystemTestCase
     visit cartaos_url
     click_on "New Cartao"
 
-    fill_in "Cliente", with: @cartao.cliente_id
+    fill_in "Cliente", with: @cartao.user_id
     fill_in "Nome titular", with: @cartao.nome_titular
     fill_in "Numero", with: @cartao.numero
     fill_in "Validade", with: @cartao.validade
@@ -28,7 +28,7 @@ class CartaosTest < ApplicationSystemTestCase
     visit cartaos_url
     click_on "Edit", match: :first
 
-    fill_in "Cliente", with: @cartao.cliente_id
+    fill_in "Cliente", with: @cartao.user_id
     fill_in "Nome titular", with: @cartao.nome_titular
     fill_in "Numero", with: @cartao.numero
     fill_in "Validade", with: @cartao.validade

@@ -24,7 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'twitter-bootstrap-rails'
 gem 'bootstrap', '~> 4.4.1'
 
-gem 'jquery-rails'
+# gem 'jquery-rails'
 gem 'jquery-mask-plugin'
 
 # Use Active Storage variant

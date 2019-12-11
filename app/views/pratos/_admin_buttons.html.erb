@@ -1,0 +1,3 @@
+<td><%= link_to 'Ver', restaurante_prato_path(restaurante_id: @restaurante.id, id: prato.id) %></td>
+<td><%= link_to 'Editar', edit_restaurante_prato_path(restaurante_id: @restaurante.id, id: prato.id) %></td>
+<td><%= link_to 'Apagar', restaurante_prato_path(restaurante_id: @restaurante.id, id: prato.id), method: :delete, data: { confirm: 'Tem certeza?' } %></td>

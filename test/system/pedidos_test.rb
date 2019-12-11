@@ -14,7 +14,7 @@ class PedidosTest < ApplicationSystemTestCase
     visit pedidos_url
     click_on "New Pedido"
 
-    fill_in "Cliente", with: @pedido.cliente_id
+    fill_in "Cliente", with: @pedido.user_id
     fill_in "Entregador", with: @pedido.entregador_id
     check "Forma pagamento" if @pedido.forma_pagamento
     fill_in "Prato", with: @pedido.prato_id
@@ -29,7 +29,7 @@ class PedidosTest < ApplicationSystemTestCase
     visit pedidos_url
     click_on "Edit", match: :first
 
-    fill_in "Cliente", with: @pedido.cliente_id
+    fill_in "Cliente", with: @pedido.user_id
     fill_in "Entregador", with: @pedido.entregador_id
     check "Forma pagamento" if @pedido.forma_pagamento
     fill_in "Prato", with: @pedido.prato_id

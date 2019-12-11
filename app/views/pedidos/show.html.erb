@@ -1,14 +1,37 @@
 <p id="notice"><%= notice %></p>
 
+<% prato = @pedido.prato %>
+
+<h4> Descrição </h4>
 <p>
   <strong>Prato:</strong>
-  <%= @pedido.prato_id %>
+  <%= prato.descricao %>
 </p>
 
 <p>
-  <strong>Cliente:</strong>
-  <%= @pedido.cliente_id %>
+  <strong>Tempo estimado:</strong>
+  <%= prato.tempo_estimado %>
 </p>
+
+<h3> Entregador </h3>
+
+<% entregador = @pedido.entregador %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= entregador.nome %>
+</p>
+
+<p>
+  <strong>Veículo:</strong>
+  <%= entregador.veiculo %>
+</p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= entregador.placa %>
+</p>
+
 
 <p>
   <strong>Forma pagamento:</strong>
@@ -25,5 +48,4 @@
   <%= @pedido.entregador_id %>
 </p>
 
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
 <%= link_to 'Back', pedidos_path %>

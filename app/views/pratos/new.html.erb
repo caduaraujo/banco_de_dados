@@ -1,0 +1,5 @@
+<h1>Novo prato</h1>
+
+<%= render 'form', restaurante: @restaurante, prato: @prato, url: restaurante_pratos_path(restaurante_id: @restaurante.id), method: 'POST' %>
+
+<%= link_to 'Back', restaurante_pratos_path %>

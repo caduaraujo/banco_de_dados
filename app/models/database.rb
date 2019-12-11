@@ -43,8 +43,8 @@ class Database
   def save
     klass = self.class
 
-    if self.id
-      self.id = klass.update(self.instance_values)
+    self.id = if self.id
+      klass.update(self.instance_values)
     else
       klass.create(self.instance_values)
     end
@@ -67,7 +67,7 @@ class Database
     sql = "INSERT INTO #{self::TABLENAME} (#{attributes.join(', ')}) VALUES (#{values}) RETURNING id"
     result = ActiveRecord::Base.connection.execute(sql)
 
-    result['id']
+    result.first['id']
   end
 
   def update(options = {})
@@ -79,6 +79,12 @@ class Database
       end
     end.join(', ')
     sql = "UPDATE #{self.class::TABLENAME} SET #{values}"
+
+    result.first['id']
+  end
+
+  def destroy
+    sql = "DELETE FROM #{self.class::TABLENAME} WHERE id = #{self.id}"
     !!ActiveRecord::Base.connection.execute(sql)
   end
 
