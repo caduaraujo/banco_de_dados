@@ -28,10 +28,15 @@ class PedidosController < ApplicationController
   def create
     @pedido = Pedido.new(pedido_params)
 
-    @pedido.credit_card_id = create_credit_card if params[:forma_de_pagamento] == '0'
+    credit_card_id = create_credit_card if pedido_params[:forma_pagamento] == '0'
 
     respond_to do |format|
       if @pedido.save
+
+        if credit_card_id
+          CartaoPedido.create(cartao_id: credit_card_id, pedido_id: @pedido.id)
+        end
+
         format.html { redirect_to pedido_path(id: @pedido.id), notice: 'Pedido was successfully created.' }
         format.json { render :show, status: :created, location: @pedido }
       else
@@ -57,6 +62,6 @@ class PedidosController < ApplicationController
     end
 
     def create_credit_card
-      CreditCard.create(params[:'credit-card'])
+      Cartao.create(params[:'credit-card'].merge(user_id: pedido_params[:user_id]))
     end
 end

@@ -2,31 +2,17 @@
 
 <h1>Pratos do restaurante <%= @restaurante.nome_fantasia %></h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Descricao</th>
-      <th>Preco</th>
-      <th>Disponibilidade</th>
-      <th>Tempo estimado</th>
-      <th></th>
-    </tr>
-  </thead>
+<% @pratos.each do |prato| %>
 
-  <tbody>
-    <% @pratos.each do |prato| %>
-      <tr>
-        <td><%= prato.descricao %></td>
-        <td><%= number_to_currency(prato.preco) %></td>
-        <td><%= prato.disponibilidade ? 'Sim' : 'Não' %></td>
-        <td><%= prato.tempo_estimado %></td>
 
-        <td><%= link_to 'Pedir', new_pedido_path(restaurante_id: @restaurante.id, prato_id: prato.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Novo prato', new_restaurante_prato_path %>
+  <div class="card" style="width: 60rem; margin: 20px auto;">
+    <div class="card-body">
+      <h4 class="card-title">  <%= prato.descricao %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%= number_to_currency(prato.preco) %></h6>
+      <p class="card-text">Disponível: <%= prato.disponibilidade ? 'Sim' : 'Não' %></p>
+      <%= link_to new_pedido_path(restaurante_id: @restaurante.id, prato_id: prato.id) do %>
+        <button type="button" class="btn btn-danger">Pedir</button>
+      <% end %>
+    </div>
+  </div>
+<% end %>

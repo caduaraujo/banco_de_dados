@@ -48,4 +48,6 @@
   <%= @pedido.entregador_id %>
 </p>
 
-<%= link_to 'Back', pedidos_path %>
+<%= link_to restaurantes_path do %>
+  <button type="button" class="btn btn-danger">Voltar para a lista de restaurantes</button>
+<% end %>

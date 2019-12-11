@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
@@ -29,6 +28,29 @@ $(document).ready(function() {
         $('#credit-card-fields').addClass('d-none');
       } else {
         $('#money-fields').addClass('d-none');
+      }
+    });
+  }
+
+  var placeOrder = $('#place-order');
+
+  if (placeOrder.length > 0) {
+    placeOrder.on('click', function(e) {
+      e.preventDefault();
+      var valid = true,
+          creditCardNumber = $('#credit-card-number');
+
+      if ($('#pedido_forma_pagamento').val() === '0') {
+        creditCardNumber.removeClass('invalid');
+
+        if (creditCardNumber.val() === '') {
+          creditCardNumber.addClass('invalid');
+          valid = false;
+        }
+      }
+
+      if (valid) {
+        $(this).parents('form').submit();
       }
     });
   }

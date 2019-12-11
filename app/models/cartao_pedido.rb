@@ -1,10 +1,6 @@
 class CartaoPedido < Database
   include ActiveModel::Model
- attr_accessor :id, :pedido_id, :user_id
-  # belongs_to :cartao
-  # belongs_to :pedido
+  attr_accessor :id, :cartao_id, :pedido_id
 
-  def cartao
-    Cartao.where()
-  end
+  TABLENAME = 'cartao_pedidos'
 end

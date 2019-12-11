@@ -5,7 +5,7 @@ class PratosController < ApplicationController
   # GET /pratos
   # GET /pratos.json
   def index
-    @pratos = Prato.all
+    @pratos = @restaurante.pratos
   end
 
   # GET /pratos/1
