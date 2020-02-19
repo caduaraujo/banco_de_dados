@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<% prato = @pedido.prato %>
+
+<h4> Descrição </h4>
+<p>
+  <strong>Prato:</strong>
+  <%= prato.descricao %>
+</p>
+
+<p>
+  <strong>Tempo estimado:</strong>
+  <%= prato.tempo_estimado %>
+</p>
+
+<h3> Entregador </h3>
+
+<% entregador = @pedido.entregador %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= entregador.nome %>
+</p>
+
+<p>
+  <strong>Veículo:</strong>
+  <%= entregador.veiculo %>
+</p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= entregador.placa %>
+</p>
+
+
+<p>
+  <strong>Forma pagamento:</strong>
+  <%= @pedido.forma_pagamento %>
+</p>
+
+<p>
+  <strong>Troco:</strong>
+  <%= @pedido.troco %>
+</p>
+
+<p>
+  <strong>Entregador:</strong>
+  <%= @pedido.entregador_id %>
+</p>
+
+<%= link_to restaurantes_path do %>
+  <button type="button" class="btn btn-danger">Voltar para a lista de restaurantes</button>
+<% end %>

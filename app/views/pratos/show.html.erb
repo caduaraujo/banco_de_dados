@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @prato.descricao %>
+</p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= number_to_currency(@prato.preco) %>
+</p>
+
+<p>
+  <strong>Disponibilidade:</strong>
+  <%= @prato.disponibilidade ? 'Sim' : 'Não' %>
+</p>
+
+<p>
+  <strong>Tempo estimado:</strong>
+  <%= @prato.tempo_estimado %>
+</p>
+
+<p>
+  <strong>Restaurante:</strong>
+  <%= @restaurante.nome_oficial %> (<%= @restaurante.nome_fantasia %>)
+</p>
+
+<%= link_to 'Editar', edit_restaurante_prato_path(restaurante_id: @restaurante.id, id: @prato.id) %> |
+<%= link_to 'Voltar', restaurante_pratos_path(restaurante_id: @restaurante.id) %>

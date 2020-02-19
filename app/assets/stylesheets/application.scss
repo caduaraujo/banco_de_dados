@@ -1,0 +1,13 @@
+@import "bootstrap";
+
+@import "enderecos";
+@import "pratos";
+@import "pedidos";
+@import "restaurantes";
+@import "scaffolds";
+@import "sessions";
+@import "users";
+
+.card-body{
+  background-color: #eee;
+}

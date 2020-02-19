@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero: 
+  nome_titular: MyString
+  validade: MyString
+  cliente: one
+
+two:
+  numero: 
+  nome_titular: MyString
+  validade: MyString
+  cliente: two

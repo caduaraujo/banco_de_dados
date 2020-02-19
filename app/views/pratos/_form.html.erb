@@ -1,0 +1,41 @@
+<%= form_with(model: prato, url: url, local: true, method: method) do |form| %>
+  <% if prato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prato.errors.count, "error") %> prohibited this prato from being saved:</h2>
+
+      <ul>
+        <% prato.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preco %>
+    <%= form.text_field :preco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo_estimado %>
+    <%= form.text_field :tempo_estimado %>
+  </div>
+
+  <div class="field d-none">
+    <%= form.label :restaurante_id %>
+    <%= form.text_field :restaurante_id, value: restaurante.id %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :disponibilidade %> Prato disponível
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

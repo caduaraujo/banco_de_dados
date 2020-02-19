@@ -1,0 +1,47 @@
+<section id="pedido-container">
+  <%= form_with(model: pedido, local: true) do |form| %>
+    <% if pedido.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+        <ul>
+          <% pedido.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <input type="hidden" name="restaurante_id", value=<%= @restaurante.id %> />
+    <input type="hidden" name="prato_id", value=<%= @prato.id %> />
+
+    <div class="field d-none">
+      <%= form.label :prato_id %>
+      <%= form.text_field :prato_id, value: params['prato_id'] %>
+    </div>
+
+    <div class="field d-none">
+      <%= form.label :user_id %>
+      <%= form.text_field :user_id, value: current_user.id %>
+    </div>
+
+    <div class="field">
+      <label>Forma de pagamento:</label>
+      <%= form.select :forma_pagamento, options_for_select([['Dinheiro', '1'], ['Cartão', '0']]), {}, class: 'custom-select mr-sm-2' %>
+    </div>
+
+    <%= render 'credit_card' %>
+    <br>
+    <%= render 'money', form: form %>
+
+    <div class="field d-none">
+      <%= form.label :entregador_id %>
+      <%= form.text_field :entregador_id, value: Entregador.all.first.id %>
+    </div>
+
+    <br>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-danger', id: 'place-order' %>
+    </div>
+  <% end %>
+</section>

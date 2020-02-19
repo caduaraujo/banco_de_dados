@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pratos do restaurante <%= @restaurante.nome_fantasia %></h1>
+
+<% @pratos.each do |prato| %>
+
+
+  <div class="card" style="width: 60rem; margin: 20px auto;">
+    <div class="card-body">
+      <h4 class="card-title">  <%= prato.descricao %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%= number_to_currency(prato.preco) %></h6>
+      <p class="card-text">Disponível: <%= prato.disponibilidade ? 'Sim' : 'Não' %></p>
+      <%= link_to new_pedido_path(restaurante_id: @restaurante.id, prato_id: prato.id) do %>
+        <button type="button" class="btn btn-danger">Pedir</button>
+      <% end %>
+    </div>
+  </div>
+<% end %>

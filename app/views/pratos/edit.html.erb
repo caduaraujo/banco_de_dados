@@ -1,0 +1,6 @@
+<h1>Edição de prato</h1>
+
+<%= render 'form', restaurante: @restaurante, prato: @prato, url: restaurante_prato_path(restaurante_id: @restaurante.id, id: prato.id), method: 'PATCH' %>
+
+<%= link_to 'Mostrar', @prato %> |
+<%= link_to 'Voltar', pratos_path %>

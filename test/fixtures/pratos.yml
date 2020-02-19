@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  preco: 1.5
+  disponibilidade: false
+  tempo_estimado: 2019-12-08 23:39:56
+  restaurante: one
+
+two:
+  descricao: MyString
+  preco: 1.5
+  disponibilidade: false
+  tempo_estimado: 2019-12-08 23:39:56
+  restaurante: two

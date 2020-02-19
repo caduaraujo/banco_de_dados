@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  placa: MyString
+  veiculo: MyString
+  nome: MyString
+
+two:
+  placa: MyString
+  veiculo: MyString
+  nome: MyString
