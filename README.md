@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+Project to Database matter at Federal University ABC(UFABC). I created an application to delivery food, and I did'nt use the active record, i 
+created a simple active record to help me with the necessaru queries at database.
 
-* Ruby version
+## Dependencies
+- Ruby
+- Postgres
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
